@@ -56,7 +56,7 @@ function fetchAndDisplaySongList (url) {
     .then(rawData => {
         displaySongList(rawData.data);
     })
-    .catch(() => alert("Song not found"));
+    .catch(error => alert(error.message));
 }
 
 
@@ -65,13 +65,16 @@ function fetchAndDisplaySongList (url) {
 // While loop through, it call createChild() function to build innerHTML for resultArea.
 
 function displaySongList (data) {
-    resultArea.innerHTML = "";
-    let innerHTML = "";
-    for(let i = 0; i < Math.min(data.length, 10); ++i) {
-        innerHTML += createChild(data[i]);
+    if(data.length === 0) alert("Song not found!");
+    else {
+        resultArea.innerHTML = "";
+        let innerHTML = "";
+        for(let i = 0; i < Math.min(data.length, 10); ++i) {
+            innerHTML += createChild(data[i]);
+        }
+        
+        resultArea.innerHTML = innerHTML;
     }
-    
-    resultArea.innerHTML = innerHTML;
 }
 
 
@@ -110,7 +113,10 @@ function fetchAndShowLyrics (url) {
 
 // This function display lyrics in the lyrics area
 
-function displayLyrics (title, lyrics = "Lyrics Not found in the server") {
-    document.querySelector('.song-title').innerText = title;
-    document.querySelector('.lyric').innerText = lyrics;
+function displayLyrics (title, lyrics) {
+    if(lyrics === undefined) alert("Lyrics not found!");
+    else {
+        document.querySelector('.song-title').innerText = title;
+        document.querySelector('.lyric').innerText = lyrics;
+    }
 }

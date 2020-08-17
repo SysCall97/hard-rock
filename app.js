@@ -81,10 +81,15 @@ function displaySongList (data) {
 // This function create child for resultArea.
 
 function createChild (data) {
+    const duration = data.duration;
+    const minutes = Math.floor(duration / 60);
+    const second = duration - minutes * 60;;
+
     let str = `<div class="single-result row align-items-center my-3 p-3">
             <div class="col-md-9">
                 <h3 class="lyrics-name">${data.title}</h3>
                 <p class="author lead">Album by <span>${data.artist.name}</span></p>
+                <p class="author lead"><span>Duration: ${minutes}:${second}</span></p>
                 <img src="${data.album.cover_small}" width="30">
             </div>
             <div class="col-md-3 text-md-right text-center">

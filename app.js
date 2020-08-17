@@ -39,7 +39,7 @@ document.querySelector('.search-result')
 // If there are any key in the search box then it bulid an url and call the fetchAndDisplaySongList() function.
 
 function startProcess () {
-    searchKey = searchBox.value;
+    const searchKey = searchBox.value;
     displayLyrics("", "");
     if(searchKey.length) {
         const url = baseUrl + searchKey;

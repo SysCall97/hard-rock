@@ -85,6 +85,7 @@ function createChild (data) {
             <div class="col-md-9">
                 <h3 class="lyrics-name">${data.title}</h3>
                 <p class="author lead">Album by <span>${data.artist.name}</span></p>
+                <img src="${data.album.cover_small}" width="30">
             </div>
             <div class="col-md-3 text-md-right text-center">
                 <button class="btn btn-success get-lyrics-btn" id="${data.artist.name}/${data.title}">Get Lyrics</button>

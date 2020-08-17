@@ -129,19 +129,19 @@ function displayLyrics (title, lyrics) {
 // This function formats the time from seconds to HH:MM:SS
 
 function toHHMMSS (seconds) {
-    var h, m, s, result='';
+    let hour, minutes, result='';
     // HOURs
-    h = Math.floor(seconds/3600);
-    seconds -= h*3600;
-    if(h){
-        result = h<10 ? '0'+h+':' : h+':';
+    hour = Math.floor(seconds/3600);
+    seconds -= hour*3600;
+    if(hour){
+        result = hour<10 ? '0'+hour+':' : hour+':';
     }
     // MINUTEs
-    m = Math.floor(seconds/60);
-    seconds -= m*60;
-    result += m<10 ? '0'+m+':' : m+':';
+    minutes = Math.floor(seconds/60);
+    seconds -= minutes*60;
+    result += minutes<10 ? '0'+minutes+':' : minutes+':';
     // SECONDs
-    s=seconds%60;
-    result += s<10 ? '0'+s : s;
+    seconds = seconds%60;
+    result += seconds<10 ? '0'+seconds : seconds;
     return result;
 }
